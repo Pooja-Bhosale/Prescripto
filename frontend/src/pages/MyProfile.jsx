@@ -1,8 +1,8 @@
 import { useContext, useState } from "react";
 import { AppContext } from "../context/AppContext";
-import { assets } from "../assets/assets";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { assets } from '../assets/assets'
 
 const MyProfile = () => {
 	const { userData, setUserData, token, backendUrl, loadUserProfileData } =
@@ -43,8 +43,7 @@ const MyProfile = () => {
 		}
 	};
 
-	return (
-		userData && (
+	return userData && (
 			<div className="max-w-lg flex flex-col gap-2 text-sm">
 				{isEdit ? (
 					<label htmlFor="image">
@@ -55,7 +54,7 @@ const MyProfile = () => {
 							/>
 							<img
 								className="w-10 absolute bottom-12 right-12"
-								src={image ? "" : assets.upload_icon}
+								src={image ? "null" : assets.upload_icon}
 							/>
 						</div>
 						<input
@@ -133,9 +132,9 @@ const MyProfile = () => {
 							</p>
 						) : (
 							<p className="text-gray-500">
-								{/* {userData.address.line1} */}
+								{userData.address.line1}
 								<br />
-								{/* {userData.address.line2} */}
+								{userData.address.line2}
 							</p>
 						)}
 					</div>
@@ -194,7 +193,7 @@ const MyProfile = () => {
 				</div>
 			</div>
 		)
-	);
+	
 };
 
 export default MyProfile;
